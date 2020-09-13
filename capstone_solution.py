@@ -4,10 +4,6 @@ import cv2 as cv
 img = cv.imread("capstone_coins.png", cv.IMREAD_GRAYSCALE)
 original_image = cv.imread("capstone_coins.png", 1)
 img = cv.GaussianBlur(img, (5, 5), 0)
-# cv.namedWindow("Detected Coins", cv.WINDOW_KEEPRATIO)
-# cv.imshow("Detected Coins", img)
-# cv.waitKey(0)
-# cv.destroyAllWindows()
 
 # Pixel height of the image
 num_rows = img.shape[0]
@@ -28,7 +24,7 @@ if circles is not None:
         # Draw actual circle detected
         cv.circle(img, center, circle[2], (255, 0, 255), 3)
 
-    # Display circles
+    # Resize img to display
     display_img = cv.resize(img, (1250, 580))
     
     cv.imshow("Detected coins", display_img)
